@@ -25,10 +25,10 @@ public class WFErrors {
 	public String getMessage() {
 		
 		if(errors.isEmpty()) {
-			return "Operation was completed sucessfully";
+			return "Operation was completed sucessfully\n";
 		}
 		
-		StringBuilder sb = new StringBuilder("Errors found:");
+		StringBuilder sb = new StringBuilder("Errors found" + del);
 		
 		for(String e : errors) {
 			sb.append(e);
@@ -42,4 +42,7 @@ public class WFErrors {
 		return !errors.isEmpty();
 	}
 	
+	public int getErrorCount() {
+		return errors.size();
+	}
 }

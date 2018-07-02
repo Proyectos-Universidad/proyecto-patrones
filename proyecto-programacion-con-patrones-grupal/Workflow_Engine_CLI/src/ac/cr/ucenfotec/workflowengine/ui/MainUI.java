@@ -80,7 +80,7 @@ public class MainUI {
 	}
 	
 	private void printErrors() {
-		System.out.print(errors.getMessage());
+		System.out.print(errors.getMessage() + "\n");
 	}
 	
 	private void clearErrors() {
@@ -94,8 +94,9 @@ public class MainUI {
 		if(tempUser == null) {
 			return;
 		}
-		
-		userService.create(tempUser);
+		clearErrors();
+		userService.create(errors,tempUser);
+		printErrors();
 	}
 	
 	private void seeUsers() {
