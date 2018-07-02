@@ -1,37 +1,33 @@
 package ac.cr.ucenfotec.workflowengine.validation;
 
-import ac.cr.ucenfotec.workflowengine.models.workflow.User;
+import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.validation.error.ErrorMessages;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
-public class UserValidator {
+public class WorkflowValidator {
 	
-	public static void validate(WFErrors errors, User user) {
-		if(ValUtil.isNullOrBlank(user.getName())) {
+	public static void validate(WFErrors errors, Workflow workflow) {
+		if(ValUtil.isNullOrBlank(workflow.getName())) {
 			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Name");
 		}
 		
-		if(ValUtil.isNullOrBlank(user.getLastName())) {
+		if(ValUtil.isNullOrBlank(workflow.getDescription())) {
 			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Last name");
 		}
 		
-		if(ValUtil.isNullOrBlank(user.getEmail())) {
+		if(ValUtil.isNullOrBlank(workflow.getIdPrefix())) {
 			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Email");
 		}
 		
-		if(user.getAreas().isEmpty()) {
-			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Functional areas");
-		}
-		
-		if(!ValUtil.isOfValidLength(user.getName())) {
+		if(!ValUtil.isOfValidLength(workflow.getName())) {
 			errors.addError("Name" + ErrorMessages.OUT_OF_BOUNDS_FIELD.getMessage());
 		}
 		
-		if(!ValUtil.isOfValidLength(user.getLastName())) {
+		if(!ValUtil.isOfValidLength(workflow.getDescription())) {
 			errors.addError("Last name" + ErrorMessages.OUT_OF_BOUNDS_FIELD.getMessage());
 		}
 		
-		if(!ValUtil.isOfValidLength(user.getEmail())) {
+		if(!ValUtil.isOfValidLength(workflow.getIdPrefix())) {
 			errors.addError("Email" + ErrorMessages.OUT_OF_BOUNDS_FIELD.getMessage());
 		}
 	}

@@ -3,6 +3,7 @@ package ac.cr.ucenfotec.workflowengine.businesslogic;
 import java.time.LocalDateTime;
 import ac.cr.ucenfotec.workflowengine.dao.WorkflowDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
+import ac.cr.ucenfotec.workflowengine.validation.WorkflowValidator;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 public class WorkflowService extends Service<Workflow,WorkflowDAO>{
@@ -16,7 +17,12 @@ public class WorkflowService extends Service<Workflow,WorkflowDAO>{
 	
 	@Override
 	public void create(WFErrors error,Workflow workflow) {
-		//Logica de validacion del lado del servidor.
+		WorkflowValidator.validate(error,workflow);
+		
+		if(error.hasErrors()) {
+			return;
+		}
+		
 		LocalDateTime created = LocalDateTime.now();
 		workflow.setCreated(created);
 		workflow.setLastModified(created);

@@ -1,9 +1,12 @@
 package ac.cr.ucenfotec.workflowengine.validation.error;
 
+import ac.cr.ucenfotec.workflowengine.validation.ValUtil;
+
 public enum ErrorMessages {
 	
 	
-	EMPTY_FIELD("Empty field: ");
+	EMPTY_FIELD("Empty field: "),
+	OUT_OF_BOUNDS_FIELD(String.format(" Is out of bounds, max length is: %s",ValUtil.MAX_LENGTH));
 	
     private final String message;
 

@@ -29,5 +29,20 @@ public class ValUtilTest {
 	public void testBlankString() {
 		Assert.assertTrue(ValUtil.isNullOrBlank("       "));
 	}
+	
+	@Test
+	public void testValidLengthString() {
+		Assert.assertTrue(ValUtil.isOfValidLength("Hello", 5));
+	}
+	
+	@Test
+	public void testUnderValidLengthString() {
+		Assert.assertTrue(ValUtil.isOfValidLength("Hi", 5));
+	}
+	
+	@Test
+	public void testInvalidLengthString() {
+		Assert.assertFalse(ValUtil.isOfValidLength("Sup?",2));
+	}
 
 }

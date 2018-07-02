@@ -1,7 +1,5 @@
 package ac.cr.ucenfotec.workflowengine.validationtest;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,24 +37,45 @@ public class UserValidatorTest {
 	}
 	
 	@Test
-	public void emptyNameUserTest() {
+	public void emptyNameTest() {
 		user.setName("");
 		UserValidator.validate(errors, user);
 		Assert.assertEquals(1,errors.getErrorCount());
 	}
 	
 	@Test
-	public void nullLastNameUserTest() {
+	public void nullLastNameTest() {
 		user.setLastName(null);
+		UserValidator.validate(errors, user);
+		Assert.assertEquals(2,errors.getErrorCount());
+	}
+	
+	@Test
+	public void emptyFunctionalAreaListTest() {
+		user.getAreas().clear();
+		UserValidator.validate(errors, user);
+		Assert.assertEquals(1,errors.getErrorCount());
+	}
+		
+	@Test
+	public void outOfBoundsNameTest() {
+		user.setName(ValidationTestData.OUT_OF_BOUNDS_STRING);
 		UserValidator.validate(errors, user);
 		Assert.assertEquals(1,errors.getErrorCount());
 	}
 	
 	@Test
-	public void emptyFunctionalAreaListUserTest() {
-		user.getAreas().clear();
+	public void outOfBoundsLastNameTest() {
+		user.setLastName(ValidationTestData.OUT_OF_BOUNDS_STRING);
 		UserValidator.validate(errors, user);
 		Assert.assertEquals(1,errors.getErrorCount());
 	}
-
+	
+	@Test
+	public void outOfBoundsEmailTest() {
+		user.setEmail(ValidationTestData.OUT_OF_BOUNDS_STRING);
+		UserValidator.validate(errors, user);
+		Assert.assertEquals(1,errors.getErrorCount());
+	}
+	
 }
