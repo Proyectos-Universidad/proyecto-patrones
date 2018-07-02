@@ -9,6 +9,7 @@ import ac.cr.ucenfotec.workflowengine.models.workflow.Ticket;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowStateRecord;
+import ac.cr.ucenfotec.workflowengine.validation.TicketValidator;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 public class TicketService extends Service<Ticket,TicketDAO>{
@@ -33,8 +34,12 @@ public class TicketService extends Service<Ticket,TicketDAO>{
 	}
 	
 	public void create(WFErrors errors,Ticket ticket) {
-		//TODO 
-		//Logica de validacion del lado del servidor.
+		
+		TicketValidator.validate(errors, ticket);
+		
+		if(errors.hasErrors()) {
+			return;
+		}
 		
 		LocalDateTime created = LocalDateTime.now();
 		Workflow workflow = ws.get(ticket.getWorkflow());
