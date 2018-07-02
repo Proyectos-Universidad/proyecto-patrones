@@ -9,15 +9,15 @@ import ac.cr.ucenfotec.workflowengine.models.workflow.Ticket;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowStateRecord;
+import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
-public class TicketService {
+public class TicketService extends Service<Ticket,TicketDAO>{
 	
-	private TicketDAO dao;
 	private WorkflowStateRecordService wsrs;
 	private WorkflowService ws;
 	
 	public TicketService() {
-		dao = new TicketDAO();
+		super(TicketDAO::new);
 		wsrs = new WorkflowStateRecordService();
 		ws = new WorkflowService();
 	}
@@ -32,7 +32,7 @@ public class TicketService {
 		return ticket;
 	}
 	
-	public void create(Ticket ticket) {
+	public void create(WFErrors errors,Ticket ticket) {
 		//TODO 
 		//Logica de validacion del lado del servidor.
 		
@@ -58,7 +58,7 @@ public class TicketService {
 		wsrs.createOrUpdate(stateRecord);
 	}
 	
-	public void nextState(Ticket ticket) {
+	public void nextState(WFErrors errors, Ticket ticket) {
 		
 		ticket = get(ticket);
 		Workflow workflow = ws.get(ticket.getWorkflow());
@@ -92,7 +92,7 @@ public class TicketService {
 			ticket.getProgress().add(nextRecord);
 		}
 		
-		wsrs.createOrUpdate(ticket.getProgress());
+		wsrs.createOrUpdate(errors,ticket.getProgress());
 		dao.persist(ticket);
 
 	}
@@ -106,6 +106,16 @@ public class TicketService {
 	}
 	
 	public void close() {
-		
+		//TODO
+	}
+
+	@Override
+	public void update(WFErrors errors, Ticket entity) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void delete(WFErrors errors, Ticket entity) {
+		throw new UnsupportedOperationException();
 	}
 }
