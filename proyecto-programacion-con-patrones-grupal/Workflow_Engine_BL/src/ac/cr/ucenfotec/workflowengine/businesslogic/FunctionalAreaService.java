@@ -2,6 +2,7 @@ package ac.cr.ucenfotec.workflowengine.businesslogic;
 
 import ac.cr.ucenfotec.workflowengine.dao.FunctionalAreaDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.FunctionalArea;
+import ac.cr.ucenfotec.workflowengine.validation.FunctionalAreaValidator;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 public class FunctionalAreaService extends Service<FunctionalArea,FunctionalAreaDAO>{
@@ -12,7 +13,11 @@ public class FunctionalAreaService extends Service<FunctionalArea,FunctionalArea
 
 	@Override
 	public void create(WFErrors error,FunctionalArea entity) {
-		//Logica de validacion del lado del servidor.
+		
+		FunctionalAreaValidator.validate(error, entity);
+		if(error.hasErrors()) {
+			return;
+		}
 		dao.persist(entity);
 	}
 
