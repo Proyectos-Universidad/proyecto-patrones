@@ -41,7 +41,7 @@ public class WorkflowValidatorTest {
 	}
 	
 	@Test
-	public void nullLastNameTest() {
+	public void nullDescriptionTest() {
 		workflow.setDescription(null);
 		WorkflowValidator.validate(errors, workflow);
 		Assert.assertEquals(2,errors.getErrorCount());
@@ -55,14 +55,14 @@ public class WorkflowValidatorTest {
 	}
 	
 	@Test
-	public void outOfBoundsLastNameTest() {
+	public void outOfBoundsDescriptionTest() {
 		workflow.setDescription(ValidationTestData.OUT_OF_BOUNDS_STRING);
 		WorkflowValidator.validate(errors, workflow);
 		Assert.assertEquals(1,errors.getErrorCount());
 	}
 	
 	@Test
-	public void outOfBoundsEmailTest() {
+	public void outOfBoundsIdPrefixTest() {
 		workflow.setIdPrefix(ValidationTestData.OUT_OF_BOUNDS_STRING);
 		WorkflowValidator.validate(errors, workflow);
 		Assert.assertEquals(1,errors.getErrorCount());

@@ -12,11 +12,11 @@ public class WorkflowValidator {
 		}
 		
 		if(ValUtil.isNullOrBlank(workflow.getDescription())) {
-			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Last name");
+			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Description");
 		}
 		
 		if(ValUtil.isNullOrBlank(workflow.getIdPrefix())) {
-			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Email");
+			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Id prefix");
 		}
 		
 		if(!ValUtil.isOfValidLength(workflow.getName())) {
@@ -24,11 +24,11 @@ public class WorkflowValidator {
 		}
 		
 		if(!ValUtil.isOfValidLength(workflow.getDescription())) {
-			errors.addError("Last name" + ErrorMessages.OUT_OF_BOUNDS_FIELD.getMessage());
+			errors.addError("Description" + ErrorMessages.OUT_OF_BOUNDS_FIELD.getMessage());
 		}
 		
 		if(!ValUtil.isOfValidLength(workflow.getIdPrefix())) {
-			errors.addError("Email" + ErrorMessages.OUT_OF_BOUNDS_FIELD.getMessage());
+			errors.addError("Id prefix" + ErrorMessages.OUT_OF_BOUNDS_FIELD.getMessage());
 		}
 	}
 	

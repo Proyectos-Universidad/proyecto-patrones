@@ -2,6 +2,7 @@ package ac.cr.ucenfotec.workflowengine.businesslogic;
 
 import ac.cr.ucenfotec.workflowengine.dao.WorkflowStateDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
+import ac.cr.ucenfotec.workflowengine.validation.WorkflowStateValidator;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 import java.time.LocalDateTime;
@@ -14,6 +15,11 @@ public class WorkflowStateService extends Service<WorkflowState,WorkflowStateDAO
 	}
 	
 	public void createOrUpdate(WFErrors errors,List<WorkflowState> states) {
+		
+		for(WorkflowState s : states) {
+			//Todo, prodia ser mejor.
+			WorkflowStateValidator.validate(errors, s);
+		}
 		
 		LocalDateTime now = LocalDateTime.now();
 		

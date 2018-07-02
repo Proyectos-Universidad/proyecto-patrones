@@ -3,9 +3,7 @@ package ac.cr.ucenfotec.workflowengine.businesslogic;
 import java.time.LocalDateTime;
 
 import ac.cr.ucenfotec.workflowengine.dao.CommentDAO;
-import ac.cr.ucenfotec.workflowengine.dao.WorkflowDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Comment;
-import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 public class CommentService extends Service<Comment,CommentDAO>{
