@@ -13,9 +13,12 @@ import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowStateRecord;
 import ac.cr.ucenfotec.workflowengine.ui.menu.Menu;
+import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 public class MainUI {
 
+	private WFErrors errors;
+	
 	private Menu menu;
 	private Menu ticketMenu;
 	private Menu confirmMenu;
@@ -76,6 +79,14 @@ public class MainUI {
 		System.exit(0);
 	}
 	
+	private void printErrors() {
+		System.out.print(errors.getMessage());
+	}
+	
+	private void clearErrors() {
+		errors = new WFErrors();
+	}
+	
 	private void createUser() {
 		userUI.setAvailableAreas(functionalAreaService.getAll());
 		User tempUser = userUI.create();
@@ -98,7 +109,9 @@ public class MainUI {
 		if(tempWf == null) {
 			return;
 		}
-		workflowService.create(tempWf);
+		clearErrors();
+		workflowService.create(errors,tempWf);
+		printErrors();
 	}
 	
 	private void seeWorkflowsStates() {
@@ -127,7 +140,9 @@ public class MainUI {
 		}
 		
 		tempWf.addState(tempState);
-		workflowService.update(tempWf);
+		clearErrors();
+		workflowService.update(errors,tempWf);
+		printErrors();
 	}
 	
 	private void createFunctionalArea() {
@@ -135,9 +150,9 @@ public class MainUI {
 		if(tempFa == null) {
 			return;
 		}
-		functionalAreaService.create(tempFa);
-
-		
+		clearErrors();
+		functionalAreaService.create(errors,tempFa);
+		printErrors();
 	}
 	
 	private void createTicket() {
@@ -154,8 +169,9 @@ public class MainUI {
 			return;
 		}
 		
-		ticketService.create(ticket);
-		
+		clearErrors();
+		ticketService.create(errors,ticket);
+		printErrors();
 		
 	}
 	
@@ -224,7 +240,9 @@ public class MainUI {
 		System.out.format("Ticket %s will be moved from %s to %s state.\nAre you sure you want to proceed?\n", selected.getSummary(),currentState.getName(),nextStateName);
 		
 		if(confirmMenu.start()) {
-			ticketService.nextState(selected);
+			clearErrors();
+			ticketService.nextState(errors,selected);
+			printErrors();
 		}
 	}
 	
