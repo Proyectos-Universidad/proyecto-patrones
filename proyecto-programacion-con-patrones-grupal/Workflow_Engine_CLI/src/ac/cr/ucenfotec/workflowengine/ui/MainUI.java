@@ -210,7 +210,9 @@ public class MainUI {
 			return;
 		}
 		
-		commentService.create(tempCm);
+		clearErrors();
+		commentService.create(errors,tempCm);
+		printErrors();
 		selected.addComment(tempCm);
 	}
 	
