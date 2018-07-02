@@ -54,7 +54,6 @@ public class TicketService extends Service<Ticket,TicketDAO>{
 		stateRecord.setWorkflow(workflow);
 		stateRecord.setWorkflowState(workflow.getStates().get(0));
 		stateRecord.setTicket(ticket);
-		
 		wsrs.createOrUpdate(stateRecord);
 	}
 	

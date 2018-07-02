@@ -7,8 +7,6 @@ import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowStateRecord;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 public class WorkflowStateRecordService extends Service<WorkflowStateRecord,WorkflowStateRecordDAO>{
-
-	private WorkflowStateRecordDAO dao;
 	
 	public WorkflowStateRecordService() {
 		super(WorkflowStateRecordDAO::new);

@@ -22,7 +22,7 @@ public class WorkflowStateService extends Service<WorkflowState,WorkflowStateDAO
 		
 		for(WorkflowState state : states) {
 			
-			if(state.getId() != 0) {
+			if(state.getId() == 0) {
 				state.setCreated(now);
 			}
 			state.setLastModified(now);
