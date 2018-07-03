@@ -1,36 +1,35 @@
 package ac.cr.ucenfotec.workflowengine.businesslogic;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
 import ac.cr.ucenfotec.workflowengine.dao.WorkflowDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
+import ac.cr.ucenfotec.workflowengine.validation.WorkflowValidator;
+import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
-public class WorkflowService {
+public class WorkflowService extends Service<Workflow,WorkflowDAO>{
 	
-	private WorkflowDAO dao;
 	private WorkflowStateService wfs;
 	
 	public WorkflowService() {
-		dao = new WorkflowDAO();
+		super(WorkflowDAO::new);
 		wfs = new WorkflowStateService();
 	}
 	
-	public void create(Workflow workflow) {
-		//Logica de validacion del lado del servidor.
+	@Override
+	public void create(WFErrors error,Workflow workflow) {
+		WorkflowValidator.validate(error,workflow);
+		
+		if(error.hasErrors()) {
+			return;
+		}
+		
 		LocalDateTime created = LocalDateTime.now();
 		workflow.setCreated(created);
 		workflow.setLastModified(created);
 		dao.persist(workflow);
 	}
 	
-	public List<Workflow> getAll() {
-		dao.openSession();
-		List<Workflow> wfs = dao.findAll();
-		dao.closeSession();
-		return wfs;
-	}
-	
+	@Override
 	public Workflow get(Workflow workflow) {
 		dao.openSession();
 		workflow = dao.findById(workflow.getId());
@@ -39,7 +38,8 @@ public class WorkflowService {
 		return workflow;
 	}
 	
-	public void update(Workflow modified) {
+	@Override
+	public void update(WFErrors error,Workflow modified) {
 		
 		dao.openSession();
 		Workflow original = dao.findById(modified.getId());
@@ -50,9 +50,14 @@ public class WorkflowService {
 		original.setStates(modified.getStates());
 		original.setLastModified(LocalDateTime.now());
 
-		wfs.createOrUpdate(original.getStates());
+		wfs.createOrUpdate(error,original.getStates());
 		
 		dao.persist(original);
 		dao.closeSession();
+	}
+
+	@Override
+	public void delete(WFErrors error, Workflow entity) {
+		throw new UnsupportedOperationException();
 	}
 }

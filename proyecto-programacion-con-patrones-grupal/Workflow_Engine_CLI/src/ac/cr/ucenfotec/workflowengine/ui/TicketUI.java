@@ -22,7 +22,7 @@ public class TicketUI extends GenericUI<Ticket>{
 	
 	@Override
 	protected String printRow(Ticket obj) {
-		return String.format("| %s | %s | %s | %s |", obj.getSummary(),obj.getWorkflow().getName(),tryGet(obj.getCreated()), obj.getWorkflow().getName());
+		return String.format("| %s | %s | %s | %s |", obj.getSummary(),obj.getWorkflow().getName(),tryGet(obj.getCreated()), obj.getDescription());
 	}
 
 	@Override

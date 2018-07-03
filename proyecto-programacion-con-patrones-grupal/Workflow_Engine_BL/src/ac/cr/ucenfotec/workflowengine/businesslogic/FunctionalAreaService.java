@@ -1,28 +1,38 @@
 package ac.cr.ucenfotec.workflowengine.businesslogic;
 
-import java.util.List;
-
 import ac.cr.ucenfotec.workflowengine.dao.FunctionalAreaDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.FunctionalArea;
+import ac.cr.ucenfotec.workflowengine.validation.FunctionalAreaValidator;
+import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
-public class FunctionalAreaService {
-	
-	private FunctionalAreaDAO dao;
+public class FunctionalAreaService extends Service<FunctionalArea,FunctionalAreaDAO>{
 	
 	public FunctionalAreaService() {
-		dao = new FunctionalAreaDAO();
+		super(FunctionalAreaDAO::new);
 	}
-	
-	public void create(FunctionalArea area) {
-		//Logica de validacion del lado del servidor.
-		dao.persist(area);
+
+	@Override
+	public void create(WFErrors error,FunctionalArea entity) {
+		
+		FunctionalAreaValidator.validate(error, entity);
+		if(error.hasErrors()) {
+			return;
+		}
+		dao.persist(entity);
 	}
-	
-	public List<FunctionalArea> getAll() {
-		dao.openSession();
-		List<FunctionalArea> wfs = dao.findAll();
-		dao.closeSession();
-		return wfs;
+
+	@Override
+	public void update(WFErrors error, FunctionalArea entity) {
+		throw new UnsupportedOperationException();
 	}
-	
+
+	@Override
+	public FunctionalArea get(FunctionalArea entity) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void delete(WFErrors error, FunctionalArea entity) {
+		throw new UnsupportedOperationException();
+	}	
 }

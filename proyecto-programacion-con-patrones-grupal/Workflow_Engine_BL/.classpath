@@ -2,7 +2,8 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="lib/workflow-engine-dao.jar"/>
-	<classpathentry kind="lib" path="lib/workflow-engine-models.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Workflow_Engine_DAO"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Workflow_Engine_Model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Workflow_Engine_Validation"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

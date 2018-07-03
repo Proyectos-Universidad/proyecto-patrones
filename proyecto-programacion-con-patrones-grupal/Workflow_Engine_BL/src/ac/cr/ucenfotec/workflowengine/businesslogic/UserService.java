@@ -1,25 +1,45 @@
 package ac.cr.ucenfotec.workflowengine.businesslogic;
 
-import java.util.List;
-
 import ac.cr.ucenfotec.workflowengine.dao.UserDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.User;
+import ac.cr.ucenfotec.workflowengine.validation.UserValidator;
+import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
-public class UserService {
-	private UserDAO dao;
+public class UserService extends Service<User,UserDAO>{
 	
 	public UserService() {
-		dao = new UserDAO();
+		super(UserDAO::new);
 	}
 	
-	public void create(User user) {
+	public void create(WFErrors errors,User user) {
+		UserValidator.validate(errors, user);
+		
+		if(errors.hasErrors()) {
+			return;
+		}
+		
 		dao.persist(user);
 	}
-	
-	public List<User> getAll(){
-		dao.openSession();
-		List<User> users = dao.findAll();
-		dao.closeSession();
-		return users;
+
+	@Override
+	public void update(WFErrors errors, User entity) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+
 	}
+
+	@Override
+	public User get(User entity) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+
+	}
+
+	@Override
+	public void delete(WFErrors errors, User entity) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+
+	}
+	
 }
