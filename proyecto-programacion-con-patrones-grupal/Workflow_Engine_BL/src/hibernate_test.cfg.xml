@@ -1,0 +1,51 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:~/test</property>
+
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">10</property>
+
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>
+
+		<!-- Set the current session context -->
+		<property name="current_session_context_class">thread</property>
+		
+		<!-- SessionFactory Scope - Four Possible Values of this Property can be Possible
+        	1) create - drop if existing schema exists and creates new one everytime
+        	2) update - updates the Existing Schema
+        	3) validate - validates the Schema and Perform User Operations
+        	4) create-drop - creates the schema on session creation and drops the schema at the end of the session 
+        -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+ 
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.workflow.AssigneeRecord"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.workflow.Comment"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.workflow.FunctionalArea"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.workflow.Ticket"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.workflow.User"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.workflow.Workflow"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowStateRecord"/>
+ 
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.form.Form"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.form.FormData"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.form.FormElement"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.form.FormElementListValue"/>
+ 		<mapping class="ac.cr.ucenfotec.workflowengine.models.form.FormElementType"/>
+ 		
+ 		
+    </session-factory>
+
+</hibernate-configuration>
