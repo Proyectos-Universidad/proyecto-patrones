@@ -8,7 +8,15 @@
 
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.h2.Driver</property>
-        <property name="connection.url">jdbc:h2:~/test</property>
+        <!-- In memory DB connection string -->
+        <property name="connection.url">jdbc:h2:mem:WORKFLOW_TEST_DB</property>
+        
+        <!-- Embedded DB connection string, will create a file at specified path, Home is the default -->
+        <!-- Use if need to check data/structure after running unit tests -->
+        <!-- <property name="connection.url">jdbc:h2:~/WORKFLOW_TEST_DB</property> -->
+
+        
+        
 
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">10</property>
