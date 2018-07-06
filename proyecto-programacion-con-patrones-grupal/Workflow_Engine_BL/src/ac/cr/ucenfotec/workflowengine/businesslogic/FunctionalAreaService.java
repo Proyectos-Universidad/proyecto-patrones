@@ -27,8 +27,11 @@ public class FunctionalAreaService extends Service<FunctionalArea,FunctionalArea
 	}
 
 	@Override
-	public FunctionalArea get(FunctionalArea entity) {
-		throw new UnsupportedOperationException();
+	public FunctionalArea get(FunctionalArea fa) {
+		dao.openSession();
+		fa = dao.findById(fa.getId());
+		dao.closeSession();
+		return fa;
 	}
 
 	@Override
