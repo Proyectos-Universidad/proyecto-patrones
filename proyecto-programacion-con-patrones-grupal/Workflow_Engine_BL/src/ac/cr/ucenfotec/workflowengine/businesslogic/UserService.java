@@ -29,10 +29,11 @@ public class UserService extends Service<User,UserDAO>{
 	}
 
 	@Override
-	public User get(User entity) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException();
-
+	public User get(User user) {
+		dao.openSession();
+		user = dao.findById(user.getId());
+		dao.closeSession();
+		return user;
 	}
 
 	@Override
