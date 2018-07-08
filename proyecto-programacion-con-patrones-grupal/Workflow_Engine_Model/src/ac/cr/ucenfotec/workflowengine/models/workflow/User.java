@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import ac.cr.ucenfotec.workflowengine.models.form.Form;
+
 @Entity
 @Table(name="Wf_Users")
 public class User {
@@ -90,6 +92,19 @@ public class User {
 	}
 	
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof User))
+			return false;
+		
+		User user = (User) o;
+		
+		return getId() == user.getId() && getEmail() == user.getEmail(); 
+	}
 	
 }
