@@ -5,7 +5,10 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	ModelsEqualsTest.class
+	ModelsEqualsTest.class,
+	ModelsFormTests.class,
+	ModelsFormDataTest.class,
+	ModelsUserTest.class
 })
 
 public class ModelsTestSuite {

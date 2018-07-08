@@ -71,11 +71,11 @@ public class FormData {
 			return true;
 		if (o == null)
 			return false;
-		if(!(o instanceof Form))
+		if(!(o instanceof FormData))
 			return false;
 		
-		Form form = (Form) o;
+		FormData formData = (FormData) o;
 		
-		return getId() == form.getId(); 
+		return getId() == formData.getId(); 
 	}
 }
