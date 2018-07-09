@@ -21,6 +21,7 @@ import ac.cr.ucenfotec.workflowengine.models.workflow.FunctionalArea;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Ticket;
 import ac.cr.ucenfotec.workflowengine.models.workflow.User;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
+import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
 
 @RunWith(Parameterized.class)
 
@@ -42,7 +43,8 @@ public class ModelsEqualsTest {
         		 {new FunctionalArea()},
         		 {new Ticket()},
                  {new User()},
-                 {new Workflow()}
+                 {new Workflow()},
+                 {new WorkflowState()}
            });
     }
 	

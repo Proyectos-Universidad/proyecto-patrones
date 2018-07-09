@@ -13,8 +13,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import ac.cr.ucenfotec.workflowengine.models.form.Form;
-
 @Entity
 @Table(name="Wf_Users")
 public class User {
