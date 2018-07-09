@@ -55,6 +55,18 @@ public class Comment {
 		this.guide = index;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof Comment))
+			return false;
+		
+		Comment comment = (Comment) o;
+		
+		return getId() == comment.getId(); 
+	}
 	
 }
