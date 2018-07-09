@@ -15,6 +15,7 @@ import org.junit.runners.Suite;
 	ModelsFunctionalAreaTests.class,
 	ModelsTicketTests.class,
 	ModelsUserTest.class,
+	ModelsWorkflowStateRecordTest.class,
 	ModelsWorkflowStateTest.class
 })
 

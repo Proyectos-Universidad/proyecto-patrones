@@ -22,6 +22,7 @@ import ac.cr.ucenfotec.workflowengine.models.workflow.Ticket;
 import ac.cr.ucenfotec.workflowengine.models.workflow.User;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
+import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowStateRecord;
 
 @RunWith(Parameterized.class)
 
@@ -44,7 +45,8 @@ public class ModelsEqualsTest {
         		 {new Ticket()},
                  {new User()},
                  {new Workflow()},
-                 {new WorkflowState()}
+                 {new WorkflowState()},
+                 {new WorkflowStateRecord()}
            });
     }
 	

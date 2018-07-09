@@ -4,15 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
+import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowStateRecord;
 
-public class ModelsWorkflowStateTest {
+public class ModelsWorkflowStateRecordTest {
 
-	WorkflowState stateI = new WorkflowState();
-	WorkflowState stateII = new WorkflowState();
+	WorkflowStateRecord stateI = new WorkflowStateRecord();
+	WorkflowStateRecord stateII = new WorkflowStateRecord();
 	
 	@Test
-	public void testWorkflowStateEqualsTrue() {
+	public void testWorkflowStateRecordEqualsTrue() {
 		
 		stateI.setId(1);
 		stateII.setId(1);
@@ -22,7 +22,7 @@ public class ModelsWorkflowStateTest {
 	}
 
 	@Test
-	public void testWorkflowStateEqualsFalse() {
+	public void testWorkflowStateRecordEqualsFalse() {
 
 		stateI.setId(1);
 		stateII.setId(2);
