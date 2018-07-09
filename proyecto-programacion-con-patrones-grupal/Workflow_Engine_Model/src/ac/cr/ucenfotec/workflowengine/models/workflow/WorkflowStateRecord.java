@@ -80,5 +80,17 @@ public class WorkflowStateRecord {
 		this.ticket = ticket;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof WorkflowStateRecord))
+			return false;
+		
+		WorkflowStateRecord workflowStateRecord = (WorkflowStateRecord) o;
+		
+		return getId() == workflowStateRecord.getId(); 
+	}
 }
