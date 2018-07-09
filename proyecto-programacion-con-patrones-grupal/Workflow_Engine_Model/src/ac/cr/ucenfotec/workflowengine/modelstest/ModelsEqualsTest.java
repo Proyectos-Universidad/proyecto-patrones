@@ -15,6 +15,8 @@ import ac.cr.ucenfotec.workflowengine.models.form.Form;
 import ac.cr.ucenfotec.workflowengine.models.form.FormData;
 import ac.cr.ucenfotec.workflowengine.models.form.FormElementListValue;
 import ac.cr.ucenfotec.workflowengine.models.form.FormElementType;
+import ac.cr.ucenfotec.workflowengine.models.workflow.AssigneeRecord;
+import ac.cr.ucenfotec.workflowengine.models.workflow.Comment;
 import ac.cr.ucenfotec.workflowengine.models.workflow.User;
 
 @RunWith(Parameterized.class)
@@ -27,11 +29,14 @@ public class ModelsEqualsTest {
 	@Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {     
-                 {new Form()},
-                 {new FormData()},
-                 {new User()},
+                 
+        		 {new AssigneeRecord()},
+        		 {new Comment()},
+        		 {new FormData()},
                  {new FormElementListValue()},
-                 {new FormElementType()}
+                 {new FormElementType()},
+        		 {new Form()},
+                 {new User()}
            });
     }
 	
