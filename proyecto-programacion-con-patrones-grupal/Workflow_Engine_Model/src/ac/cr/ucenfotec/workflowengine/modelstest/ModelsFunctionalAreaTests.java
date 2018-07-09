@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ac.cr.ucenfotec.workflowengine.models.form.Form;
 import ac.cr.ucenfotec.workflowengine.models.workflow.FunctionalArea;
 
 public class ModelsFunctionalAreaTests {
@@ -13,7 +12,7 @@ public class ModelsFunctionalAreaTests {
 	FunctionalArea areaII = new FunctionalArea();
 	
 	@Test
-	public void testFormEqualsTrue() {
+	public void testFunctionalAreaEqualsTrue() {
 		
 		areaI.setId(1);
 		areaII.setId(1);
@@ -24,7 +23,7 @@ public class ModelsFunctionalAreaTests {
 	}
 
 	@Test
-	public void testFormEqualsFalse() {
+	public void testFunctionalAreaEqualsFalse() {
 
 		areaI.setId(1);
 		areaII.setId(2);

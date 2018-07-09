@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ac.cr.ucenfotec.workflowengine.models.workflow.AssigneeRecord;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Comment;
 
 public class ModelsCommentTest {
@@ -13,7 +12,7 @@ public class ModelsCommentTest {
 	Comment commentII = new Comment();
 	
 	@Test
-	public void testAssigneeRecordEqualsTrue() {
+	public void testCommentEqualsTrue() {
 		
 		commentI.setId(1);
 		commentII.setId(1);
@@ -23,7 +22,7 @@ public class ModelsCommentTest {
 	}
 
 	@Test
-	public void testAssigneeRecordEqualsFalse() {
+	public void testCommentEqualsFalse() {
 
 		commentI.setId(1);
 		commentII.setId(2);

@@ -12,9 +12,9 @@ import org.junit.runners.Suite;
 	ModelsFormElementListValueTest.class,
 	ModelsFormElementTypeTest.class,
 	ModelsFormTests.class,
-	ModelsUserTest.class,
-	ModelsFunctionalAreaTests.class
-	
+	ModelsFunctionalAreaTests.class,
+	ModelsTicketTests.class,
+	ModelsUserTest.class		
 })
 
 public class ModelsTestSuite {
