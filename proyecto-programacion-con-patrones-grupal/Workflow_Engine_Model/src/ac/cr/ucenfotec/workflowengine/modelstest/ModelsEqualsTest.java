@@ -18,7 +18,9 @@ import ac.cr.ucenfotec.workflowengine.models.form.FormElementType;
 import ac.cr.ucenfotec.workflowengine.models.workflow.AssigneeRecord;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Comment;
 import ac.cr.ucenfotec.workflowengine.models.workflow.FunctionalArea;
+import ac.cr.ucenfotec.workflowengine.models.workflow.Ticket;
 import ac.cr.ucenfotec.workflowengine.models.workflow.User;
+import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 
 @RunWith(Parameterized.class)
 
@@ -38,7 +40,9 @@ public class ModelsEqualsTest {
                  {new FormElementType()},
         		 {new Form()},
         		 {new FunctionalArea()},
-                 {new User()}
+        		 {new Ticket()},
+                 {new User()},
+                 {new Workflow()}
            });
     }
 	
