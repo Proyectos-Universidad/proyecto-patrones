@@ -98,7 +98,18 @@ public class Ticket {
 		this.comments = comments;
 	}
 	
-
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof Ticket))
+			return false;
+		
+		Ticket ticket = (Ticket) o;
+		
+		return getId() == ticket.getId(); 
+	}
 
 }
