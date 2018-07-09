@@ -26,6 +26,18 @@ public class FunctionalArea {
 		this.name = name;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof FunctionalArea))
+			return false;
+		
+		FunctionalArea functionalArea = (FunctionalArea) o;
+		
+		return getId() == functionalArea.getId(); 
+	}
 	
 }
