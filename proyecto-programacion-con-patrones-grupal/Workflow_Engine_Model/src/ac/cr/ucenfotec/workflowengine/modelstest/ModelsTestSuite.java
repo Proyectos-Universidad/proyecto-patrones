@@ -14,7 +14,8 @@ import org.junit.runners.Suite;
 	ModelsFormTests.class,
 	ModelsFunctionalAreaTests.class,
 	ModelsTicketTests.class,
-	ModelsUserTest.class
+	ModelsUserTest.class,
+	ModelsWorkflowStateTest.class
 })
 
 public class ModelsTestSuite {
