@@ -8,7 +8,8 @@ import org.junit.runners.Suite;
 	ModelsEqualsTest.class,
 	ModelsFormTests.class,
 	ModelsFormDataTest.class,
-	ModelsUserTest.class
+	ModelsUserTest.class,
+	ModelsFormElementListValueTest.class
 })
 
 public class ModelsTestSuite {
