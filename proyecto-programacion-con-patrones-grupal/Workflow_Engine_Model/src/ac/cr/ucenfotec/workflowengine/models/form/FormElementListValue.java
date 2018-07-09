@@ -40,5 +40,17 @@ public class FormElementListValue {
 		this.value = value;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof FormElementListValue))
+			return false;
+		
+		FormElementListValue formElementListValue = (FormElementListValue) o;
+		
+		return getId() == formElementListValue.getId(); 
+	}
 }
