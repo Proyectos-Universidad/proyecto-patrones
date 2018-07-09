@@ -12,7 +12,8 @@ import org.junit.runners.Suite;
 	ModelsFormElementListValueTest.class,
 	ModelsFormElementTypeTest.class,
 	ModelsFormTests.class,
-	ModelsUserTest.class
+	ModelsUserTest.class,
+	ModelsFunctionalAreaTests.class
 	
 })
 
