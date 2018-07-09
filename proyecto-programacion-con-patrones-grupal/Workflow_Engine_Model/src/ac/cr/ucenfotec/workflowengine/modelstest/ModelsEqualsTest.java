@@ -13,6 +13,8 @@ import org.junit.runners.Parameterized.Parameters;
 
 import ac.cr.ucenfotec.workflowengine.models.form.Form;
 import ac.cr.ucenfotec.workflowengine.models.form.FormData;
+import ac.cr.ucenfotec.workflowengine.models.form.FormElementListValue;
+import ac.cr.ucenfotec.workflowengine.models.form.FormElementType;
 import ac.cr.ucenfotec.workflowengine.models.workflow.User;
 
 @RunWith(Parameterized.class)
@@ -27,7 +29,9 @@ public class ModelsEqualsTest {
         return Arrays.asList(new Object[][] {     
                  {new Form()},
                  {new FormData()},
-                 {new User()}
+                 {new User()},
+                 {new FormElementListValue()},
+                 {new FormElementType()}
            });
     }
 	
