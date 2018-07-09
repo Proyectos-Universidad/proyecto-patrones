@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
+
 @Entity
 public class Workflow {
 
@@ -71,12 +72,19 @@ public class Workflow {
 	public void setIdPrefix(String idPrefix) {
 		this.idPrefix = idPrefix;
 	}
-	
-	
-	
-	
-
-	
-	
+		
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof Workflow))
+			return false;
+		
+		Workflow workflow = (Workflow) o;
+		
+		return getId() == workflow.getId(); 
+	}
 	
 }

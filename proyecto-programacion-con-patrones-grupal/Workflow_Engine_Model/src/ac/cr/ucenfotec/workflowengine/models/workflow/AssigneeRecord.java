@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
 @Entity
 public class AssigneeRecord {
 	@Id
@@ -56,5 +57,17 @@ public class AssigneeRecord {
 		this.guide = index;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof AssigneeRecord))
+			return false;
+		
+		AssigneeRecord assigneeRecord = (AssigneeRecord) o;
+		
+		return getId() == assigneeRecord.getId(); 
+	}
 }

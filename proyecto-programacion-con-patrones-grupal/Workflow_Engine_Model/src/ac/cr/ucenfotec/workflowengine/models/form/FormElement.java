@@ -61,5 +61,17 @@ public abstract class FormElement {
 	Para poder agregarle validacion definida por el usuario a este campo
 	*/
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof FormElement))
+			return false;
+		
+		FormElement formElement = (FormElement) o;
+		
+		return getId() == formElement.getId(); 
+	}
 }

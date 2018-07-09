@@ -86,5 +86,17 @@ public class WorkflowState {
 		this.area = area;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof WorkflowState))
+			return false;
+		
+		WorkflowState workflowState = (WorkflowState) o;
+		
+		return getId() == workflowState.getId(); 
+	}
 }

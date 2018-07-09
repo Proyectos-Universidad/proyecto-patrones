@@ -65,5 +65,17 @@ public class FormData {
 		this.form = form;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof FormData))
+			return false;
+		
+		FormData formData = (FormData) o;
+		
+		return getId() == formData.getId(); 
+	}
 }

@@ -40,6 +40,18 @@ public class FormElementType {
 		this.datatype = datatype;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if(!(o instanceof FormElementType))
+			return false;
+		
+		FormElementType formElementType = (FormElementType) o;
+		
+		return getId() == formElementType.getId(); 
+	}
 }
 
