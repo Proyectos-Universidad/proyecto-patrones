@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ac.cr.ucenfotec.workflowengine.models.form.FormElementListValue;
+import ac.cr.ucenfotec.workflowengine.models.form.FormElementType;
 
-public class ModelsFormElementListValueTest {
+public class ModelsFormElementTypeTest {
 
-	FormElementListValue formDataI = new FormElementListValue();
-	FormElementListValue formDataII = new FormElementListValue();
+	FormElementType formDataI = new FormElementType();
+	FormElementType formDataII = new FormElementType();
 	
 	@Test
 	public void testFormElementListValueEqualsTrue() {

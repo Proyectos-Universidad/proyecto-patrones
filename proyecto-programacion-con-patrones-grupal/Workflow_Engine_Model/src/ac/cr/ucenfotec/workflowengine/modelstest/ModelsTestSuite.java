@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
 	ModelsFormTests.class,
 	ModelsFormDataTest.class,
 	ModelsUserTest.class,
-	ModelsFormElementListValueTest.class
+	ModelsFormElementListValueTest.class,
+	ModelsFormElementTypeTest.class
 })
 
 public class ModelsTestSuite {
