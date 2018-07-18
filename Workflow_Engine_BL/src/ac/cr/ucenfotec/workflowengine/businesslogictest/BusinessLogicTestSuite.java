@@ -10,7 +10,8 @@ import ac.cr.ucenfotec.workflowengine.dao.HUtil;
 @Suite.SuiteClasses({
 	FunctionalAreaServiceTest.class,
 	UserServiceTest.class,
-	WorkflowServiceTest.class
+	WorkflowServiceTest.class,
+	WorkflowStateServiceTest.class
 })
 
 public class BusinessLogicTestSuite {
