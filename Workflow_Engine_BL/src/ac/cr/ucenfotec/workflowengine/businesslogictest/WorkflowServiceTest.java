@@ -55,6 +55,9 @@ public class WorkflowServiceTest {
 		workflow = workflowService.get(workflow);
 		
 		Assert.assertNotNull(workflowService.get(workflow));
+		Assert.assertEquals(newName, workflow.getName());
+		Assert.assertEquals(newDescription, workflow.getDescription());
+		Assert.assertEquals(newIdPrefix,workflow.getIdPrefix());
 		Assert.assertFalse(errors.hasErrors());
 		Assert.assertNotEquals(lastModified, workflow.getLastModified());
 		
