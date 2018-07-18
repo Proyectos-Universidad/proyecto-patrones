@@ -1,7 +1,5 @@
 package ac.cr.ucenfotec.workflowengine.businesslogictest;
 
-import static org.junit.Assert.*;
-
 import java.time.LocalDateTime;
 
 import org.junit.Assert;
