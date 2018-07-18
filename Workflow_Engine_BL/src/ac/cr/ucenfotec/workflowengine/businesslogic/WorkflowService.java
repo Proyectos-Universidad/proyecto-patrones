@@ -62,6 +62,7 @@ public class WorkflowService extends Service<Workflow,WorkflowDAO>{
 		original.setDescription(modified.getDescription());
 		original.setStates(modified.getStates());
 		original.setLastModified(LocalDateTime.now());
+		original.setIdPrefix(modified.getIdPrefix());
 
 		wfs.createOrUpdate(error,original.getStates());
 		
