@@ -11,7 +11,8 @@ import ac.cr.ucenfotec.workflowengine.dao.HUtil;
 	FunctionalAreaServiceTest.class,
 	UserServiceTest.class,
 	WorkflowServiceTest.class,
-	WorkflowStateServiceTest.class
+	WorkflowStateServiceTest.class,
+	TicketServiceTest.class
 })
 
 public class BusinessLogicTestSuite {
