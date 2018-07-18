@@ -1,7 +1,6 @@
 package ac.cr.ucenfotec.workflowengine.businesslogic;
 
 import ac.cr.ucenfotec.workflowengine.dao.WorkflowStateDAO;
-import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
 import ac.cr.ucenfotec.workflowengine.validation.WorkflowStateValidator;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
