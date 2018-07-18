@@ -1,6 +1,8 @@
 package ac.cr.ucenfotec.workflowengine.businesslogic;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 import ac.cr.ucenfotec.workflowengine.dao.WorkflowDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.validation.WorkflowValidator;
@@ -36,6 +38,17 @@ public class WorkflowService extends Service<Workflow,WorkflowDAO>{
 		dao.initialize(workflow.getStates());
 		dao.closeSession();
 		return workflow;
+	}
+	
+	@Override
+	public List<Workflow> getAll() {
+		dao.openSession();
+		List<Workflow> all = dao.findAll();
+		for(Workflow w : all) {
+			dao.initialize(w.getStates());
+		}
+		dao.closeSession();
+		return all;
 	}
 	
 	@Override
