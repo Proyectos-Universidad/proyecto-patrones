@@ -10,6 +10,8 @@ import org.junit.Test;
 import ac.cr.ucenfotec.workflowengine.businesslogic.FunctionalAreaService;
 import ac.cr.ucenfotec.workflowengine.businesslogic.WorkflowService;
 import ac.cr.ucenfotec.workflowengine.businesslogic.WorkflowStateService;
+import ac.cr.ucenfotec.workflowengine.models.workflow.FunctionalArea;
+import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
@@ -24,23 +26,32 @@ public class WorkflowStateServiceTest {
 	
 	@Test
 	public void createWorkflowStateTest() {
+		
 		WorkflowStateService workflowStateService = new WorkflowStateService();
-		WorkflowState workflowState = new WorkflowState();
+		WorkflowService workflowService = new WorkflowService();
+		WorkflowState workflowState = null;
+		Workflow workflow = workflowService.getAll().get(0);
+		FunctionalArea area = new FunctionalAreaService().getAll().get(0);
 		
-		workflowState.setWorkflow(new WorkflowService().getAll().get(0));
-		workflowState.setArea(new FunctionalAreaService().getAll().get(0));
-		workflowState.setName("Test state");
-		workflowState.setDescription("Test description");
-		workflowState.setNextStateMessage("Test next state message");
+		for(int i = 0; i < 2; i++) {
+			workflowState = new WorkflowState();
+			workflowState.setWorkflow(workflow);
+			workflowState.setArea(area);
+			workflowState.setName("Test state");
+			workflowState.setDescription("Test description");
+			workflowState.setNextStateMessage("Test next state message");
+			workflow.addState(workflowState);
+		}
 		
-		workflowStateService.createOrUpdate(errors, Arrays.asList(new WorkflowState[]{workflowState}));
+		workflowStateService.createOrUpdate(errors,workflow.getStates());
 		Assert.assertFalse(errors.hasErrors());
-		
+		workflowService.update(errors, workflow);
+		Assert.assertFalse(errors.hasErrors());
 		workflowState = workflowStateService.get(workflowState);
+		
 		Assert.assertNotNull(workflowState);
 		Assert.assertNotNull(workflowState.getCreated());
 		Assert.assertNotNull(workflowState.getLastModified());
-	
 	}
 	
 	@Test
