@@ -18,7 +18,7 @@ public class TicketServiceTest {
 	public void cleanErrors() {
 		errors = new WFErrors();
 	}
-	
+	//TODO More tests?
 	@Test
 	public void createTicketTest() {
 		TicketService ticketService = new TicketService();
@@ -46,8 +46,7 @@ public class TicketServiceTest {
 		ticketService.nextState(errors, ticket);
 		Assert.assertFalse(errors.hasErrors());
 		ticket = ticketService.get(ticket);
-		Assert.assertNotEquals(wsrSize,ticket.getProgress().size());
-		
+		Assert.assertNotEquals(wsrSize,ticket.getProgress().size());	
 	}
 
 }
