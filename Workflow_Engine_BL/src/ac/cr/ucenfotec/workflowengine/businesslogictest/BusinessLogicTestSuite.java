@@ -12,7 +12,8 @@ import ac.cr.ucenfotec.workflowengine.dao.HUtil;
 	UserServiceTest.class,
 	WorkflowServiceTest.class,
 	WorkflowStateServiceTest.class,
-	TicketServiceTest.class
+	TicketServiceTest.class,
+	CommentServiceTest.class
 })
 
 public class BusinessLogicTestSuite {
