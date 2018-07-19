@@ -1,19 +1,13 @@
 package ac.cr.ucenfotec.workflowengine.businesslogictest;
 
-import java.util.Arrays;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import ac.cr.ucenfotec.workflowengine.businesslogic.FunctionalAreaService;
 import ac.cr.ucenfotec.workflowengine.businesslogic.TicketService;
 import ac.cr.ucenfotec.workflowengine.businesslogic.UserService;
 import ac.cr.ucenfotec.workflowengine.businesslogic.WorkflowService;
-import ac.cr.ucenfotec.workflowengine.businesslogic.WorkflowStateService;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Ticket;
-import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowState;
-import ac.cr.ucenfotec.workflowengine.models.workflow.WorkflowStateRecord;
 import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 public class TicketServiceTest {
