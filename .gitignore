@@ -1,17 +1,18 @@
 bin/
-/.metadata
-/RemoteSystemsTempFiles
-/Servers
-/.recommenders
+**/.metadata
+**/RemoteSystemsTempFiles
+**/Servers
+**/.recommenders
 
 # dependencies
-/node_modules
+**/node_modules
 
 # testing
-/coverage
+**/coverage
 
 # production
-/build
+**/build
+**/dist
 
 # misc
 .DS_Store
