@@ -38,6 +38,16 @@ public class WorkflowStateService extends Service<WorkflowState,WorkflowStateDAO
 		dao.commitTransaction();
 		dao.closeSession();
 	}
+	
+	@Override
+	public WorkflowState get(WorkflowState state) {
+		dao.openSession();
+		state = dao.findById(state.getId());
+		dao.initialize(state.getWorkflow());
+		dao.initialize(state.getArea());
+		dao.closeSession();
+		return state;
+	}
 
 	@Override
 	public void create(WFErrors errors, WorkflowState entity) {
@@ -46,11 +56,6 @@ public class WorkflowStateService extends Service<WorkflowState,WorkflowStateDAO
 
 	@Override
 	public void update(WFErrors errors, WorkflowState entity) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public WorkflowState get(WorkflowState entity) {
 		throw new UnsupportedOperationException();
 	}
 

@@ -23,8 +23,6 @@ public class CommentValidator {
 		if(comment.getTicket() == null) {
 			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Ticket");
 		}
-		
-
 	}
 	
 }

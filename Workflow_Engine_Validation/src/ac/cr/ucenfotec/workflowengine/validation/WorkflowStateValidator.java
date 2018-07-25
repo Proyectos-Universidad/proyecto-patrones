@@ -6,6 +6,11 @@ import ac.cr.ucenfotec.workflowengine.validation.error.WFErrors;
 
 public class WorkflowStateValidator {
 	public static void validate(WFErrors errors, WorkflowState workflowState) {
+		
+		if(workflowState.getWorkflow() == null) {
+			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Workflow");
+		}
+		
 		if(ValUtil.isNullOrBlank(workflowState.getName())) {
 			errors.addError(ErrorMessages.EMPTY_FIELD.getMessage() + "Name");
 		}

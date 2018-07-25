@@ -9,11 +9,11 @@
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.h2.Driver</property>
         <!-- In memory DB connection string -->
-        <property name="connection.url">jdbc:h2:mem:WORKFLOW_TEST_DB</property>
+        <!-- <property name="connection.url">jdbc:h2:mem:WORKFLOW_TEST_DB</property>-->
         
         <!-- Embedded DB connection string, will create a file at specified path, Home is the default -->
         <!-- Use if need to check data/structure after running unit tests -->
-        <!-- <property name="connection.url">jdbc:h2:~/WORKFLOW_TEST_DB</property> -->
+        <property name="connection.url">jdbc:h2:~/WORKFLOW_TEST_DB</property>
 
         
         

@@ -9,7 +9,11 @@ import ac.cr.ucenfotec.workflowengine.dao.HUtil;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	FunctionalAreaServiceTest.class,
-	UserServiceTest.class
+	UserServiceTest.class,
+	WorkflowServiceTest.class,
+	WorkflowStateServiceTest.class,
+	TicketServiceTest.class,
+	CommentServiceTest.class
 })
 
 public class BusinessLogicTestSuite {

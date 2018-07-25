@@ -1,6 +1,8 @@
 package ac.cr.ucenfotec.workflowengine.businesslogic;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 import ac.cr.ucenfotec.workflowengine.dao.WorkflowDAO;
 import ac.cr.ucenfotec.workflowengine.models.workflow.Workflow;
 import ac.cr.ucenfotec.workflowengine.validation.WorkflowValidator;
@@ -39,6 +41,17 @@ public class WorkflowService extends Service<Workflow,WorkflowDAO>{
 	}
 	
 	@Override
+	public List<Workflow> getAll() {
+		dao.openSession();
+		List<Workflow> all = dao.findAll();
+		for(Workflow w : all) {
+			dao.initialize(w.getStates());
+		}
+		dao.closeSession();
+		return all;
+	}
+	
+	@Override
 	public void update(WFErrors error,Workflow modified) {
 		
 		dao.openSession();
@@ -49,6 +62,7 @@ public class WorkflowService extends Service<Workflow,WorkflowDAO>{
 		original.setDescription(modified.getDescription());
 		original.setStates(modified.getStates());
 		original.setLastModified(LocalDateTime.now());
+		original.setIdPrefix(modified.getIdPrefix());
 
 		wfs.createOrUpdate(error,original.getStates());
 		
