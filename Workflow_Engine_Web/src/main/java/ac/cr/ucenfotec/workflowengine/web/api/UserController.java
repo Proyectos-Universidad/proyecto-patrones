@@ -26,6 +26,7 @@ public class UserController {
 	public User get(@PathVariable int id){
 		User u = new User();
 		u.setId(id);
+		System.out.println(u.getId());
 		return us.get(u);
 	}
 }

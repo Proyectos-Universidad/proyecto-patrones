@@ -32,6 +32,7 @@ public class UserService extends Service<User,UserDAO>{
 	public User get(User user) {
 		dao.openSession();
 		user = dao.findById(user.getId());
+		System.out.println(user.getName());
 		dao.closeSession();
 		return user;
 	}

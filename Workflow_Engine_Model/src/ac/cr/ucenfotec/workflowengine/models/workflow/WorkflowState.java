@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 public class WorkflowState {
 	
@@ -20,6 +22,7 @@ public class WorkflowState {
 	private LocalDateTime created;
 	private LocalDateTime lastModified;
 	private int guide;
+	@JsonManagedReference
 	@ManyToOne
 	private Workflow workflow;
 	@OneToOne

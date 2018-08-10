@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Workflow {
 
@@ -24,11 +26,14 @@ public class Workflow {
 	private String idPrefix;
 	private LocalDateTime created;
 	private LocalDateTime lastModified;
+	@JsonBackReference
 	@OneToMany(mappedBy="workflow")
 	@OrderColumn(name="guide")
 	private List<WorkflowState> states = new ArrayList<WorkflowState>();
 	
-	
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getId() {
 		return id;
 	}
